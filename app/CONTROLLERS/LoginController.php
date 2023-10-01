@@ -1,10 +1,10 @@
 <?php 
 
 namespace App\Controllers;
-
-class LoginController
+ 
+class LoginController extends Controller
 {
     public function login(){
-        return "hola desde el login";
+        return $this->view('login');
     }
 }
