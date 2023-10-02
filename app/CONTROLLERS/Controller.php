@@ -3,7 +3,13 @@
 namespace App\Controllers;
 
 class Controller{
-    public function view($route){
+    public function view($route, $data = []){
+
+
+        //Destrucutrar el $data
+        extract($data);
+        
+
         $route = str_replace('.', '/', $route);
 
 
