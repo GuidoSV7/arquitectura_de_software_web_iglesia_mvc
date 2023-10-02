@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Document</title>
+    <title>Login</title>
 </head>
 <body>
 <div class="bg-gray-100 flex justify-center items-center h-screen">
@@ -18,8 +18,8 @@
   <form action="#" method="POST">
     <!-- Username Input -->
     <div class="mb-4">
-      <label for="username" class="block text-gray-600">Username</label>
-      <input type="text" id="username" name="username" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500" autocomplete="off">
+      <label for="name" class="block text-gray-600">Name</label>
+      <input type="text" id="name" name="name" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500" autocomplete="off">
     </div>
     <!-- Password Input -->
     <div class="mb-4">
@@ -29,7 +29,7 @@
 
     <!-- Forgot Password Link -->
     <div class="mb-6 text-blue-500">
-      <a href="#" class="hover:underline">Aún no eres miembro? Registrate!</a>
+      <a href="/register" class="hover:underline">Aún no eres miembro? Registrate!</a>
     </div>
     <!-- Login Button -->
     <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md py-2 px-4 w-full">Login</button>
