@@ -10,6 +10,9 @@ class UserController extends Controller
 
         $contactModel = new Contact;
 
+        return $contactModel->query('SELECT * FROM users')->get();
+
+        
 
         return $this->view('users_list', [
             'title' => 'Lista de Usuarios'
