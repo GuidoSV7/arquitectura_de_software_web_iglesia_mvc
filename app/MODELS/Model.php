@@ -17,6 +17,8 @@ class Model{
 
     protected $table;
 
+    protected $alertas = [];
+
     public function __construct()
     {
         $this->connection = $this->connect();
