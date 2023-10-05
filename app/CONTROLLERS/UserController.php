@@ -17,20 +17,23 @@ class UserController extends Controller
         // return $userModel->delete(11);
 
         return $this->view('users_list', [
-            'title' => 'Lista de Usuarios',
+            'title' => 'Lista de usuarios',
             'users' => $users
+
         ]);
     }
 
     public function create(){
-        
+        return "Hola desde el create";
     }
 
     public function show(){
-        return $this->view('user_show', [
-            'title' => 'Editar Usuario',
+        // return $this->view('user_show', [
+        //     'title' => 'Editar Usuario',
 
-        ]);
+        // ]);
+
+        return "hola desde el show";
     }
 
     public function edit(){

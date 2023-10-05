@@ -2,73 +2,57 @@
 
 namespace Lib;
 
-class Route{
+class Route
+{
     private static $routes = [];
 
-    public static function get($uri, $callback){
-        $uri = trim($uri, '/');
+    public static function get($uri, $callback)
+    {
         self::$routes['GET'][$uri] = $callback;
     }
 
-    public static function post($uri, $callback){
-        $uri = trim($uri, '/');
+    public static function post($uri, $callback)
+    {
         self::$routes['POST'][$uri] = $callback;
     }
 
-    public static function dispatch(){
+    public static function dispatch()
+    {
         $uri = $_SERVER['REQUEST_URI'];
-        $uri = trim($uri, '/');
-
         $method = $_SERVER['REQUEST_METHOD'];
-    
 
-    
-        foreach (self::$routes[$method] as $route => $callback){
+        foreach (self::$routes[$method] as $route => $callback) {
+            $route = str_replace('/', '\/', $route); // Escapar las barras en la ruta
 
-            if(strpos($route, ':') != false){
-                $route = preg_replace('#:[a-zA-Z]+#', '([0-9]+)', $route);
+            // Reemplazar los parámetros dinámicos en la ruta
+            $route = preg_replace_callback('/:[a-zA-Z]+/', function ($match) {
+                return '([0-9]+)';
+            }, $route);
 
+            // Agregar delimitadores y anclaje de inicio y final
+            $pattern = "/^" . $route . "$/";
 
-            }
-            if(preg_match("#^$route$#",$uri, $matches)){
-                
+            if (preg_match($pattern, $uri, $matches)) {
+                $params = array_slice($matches, 1);
 
-                $params = array_slice($matches,1);
-
-                // $response = $callback(...$params);
-
-                if(is_callable($callback)){
+                if (is_callable($callback)) {
                     $response = $callback(...$params);
                 }
 
-                if(is_array($callback)){
+                if (is_array($callback)) {
                     $controller = new $callback[0];
                     $response = $controller->{$callback[1]}(...$params);
                 }
 
-                if(is_array($response) || is_object($response)){
+                if (is_array($response) || is_object($response)) {
                     header('Content-Type: application/json');
-
                     echo json_encode($response);
-                }else{
+                } else {
                     echo $response;
                 }
 
                 return;
-
-  
-                
             }
-            
-
-            // if($route == $uri){
-            //     $callback();
-            //     return;
-            // }
         }
-    
-  
     }
-    
-    
 }

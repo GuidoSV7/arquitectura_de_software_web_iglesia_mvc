@@ -24,8 +24,10 @@ Route::get('/dashboard',[DashboardController::class, 'index'] );
 
 //Users
 Route::get('/users', [UserController::class, 'index']);
+Route::get('/users/create', [UserController::class, 'create']);
 Route::post('/users/create', [UserController::class, 'create']);
-Route::get('/users/{user}/show', [UserController::class, 'index']);
+Route::get('/users/:id/show', [UserController::class, 'show']);
 Route::get('/users/{user}/edit', [UserController::class, 'edit']);
+Route::post('/users/{user}/edit', [UserController::class, 'edit']);
 
 Route::dispatch();
