@@ -16,29 +16,39 @@ class RegisterController extends Controller
             $userBD = $userModel->findbyname($userPOST['name']);
 
             //Verificar si el usuario se encuentra en la base de datos
-            if($userBD != null){
-                var_dump("El usuario se encuentra");            
+            if(is_null($userBD)){
 
-               //Verificar si las credenciales son correctas
+                //Verificar que password y confirm_password sean iguales
 
-               if(password_verify($userPOST['password'], $userBD['password'])){
+                if($userPOST['password'] == $userPOST['confirm_password']){
 
-                return $this->view('dashboard');
-               }
 
-               var_dump("Credenciales Incorrectas");
+                     //Verificar que no falte llenar datos (Validaciones)
+
+                    $userModel->create([
+                        'name' => $userPOST['name'],
+                        'password' =>  password_hash($userPOST['password'],PASSWORD_BCRYPT ) ,
+                        'phone_number' => null,
+                        'token' => 'Token de Prueb',
+                        'id_rol' => '1',
+                    ]);
+
+                    return $this->view('dashboard');
+
+                    
+                }
+                
+                var_dump('No son iguales');
+
+               
+
+               
+
                
             }else{
-                var_dump("No hay en la BD");
+                var_dump("Ya estás registrado");
             }
-                
-            
-
-            
-
-          
-
-            
+         
         }
 
 
