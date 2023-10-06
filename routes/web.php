@@ -27,7 +27,7 @@ Route::get('/users', [UserController::class, 'index']);
 Route::get('/users/create', [UserController::class, 'create']);
 Route::post('/users/create', [UserController::class, 'create']);
 Route::get('/users/:id/show', [UserController::class, 'show']);
-Route::get('/users/{user}/edit', [UserController::class, 'edit']);
-Route::post('/users/{user}/edit', [UserController::class, 'edit']);
+Route::get('/users/:id/edit', [UserController::class, 'edit']);
+Route::post('/users/:id/edit', [UserController::class, 'edit']);
 
 Route::dispatch();

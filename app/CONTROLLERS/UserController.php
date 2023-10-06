@@ -27,16 +27,26 @@ class UserController extends Controller
         return "Hola desde el create";
     }
 
-    public function show(){
-        // return $this->view('user_show', [
-        //     'title' => 'Editar Usuario',
+    public function show($id){
 
-        // ]);
+        $userModel = new User;
+        $user = $userModel->find($id);
 
-        return "hola desde el show";
+        // var_dump($userModel->rolbyid_rol($user['id_rol']));
+        $rol = $userModel->rolbyid_rol($user['id_rol']);
+        
+        return $this->view('user_show', [
+            'title' => 'Editar Usuario',
+             'user' => $user,
+                'rol' => $rol
+            
+
+        ]);
+
+        
     }
 
-    public function edit(){
-        
+    public function edit($id){
+        return "hola desde el edit";
     }
 }
