@@ -47,6 +47,46 @@ class UserController extends Controller
     }
 
     public function edit($id){
-        return "hola desde el edit";
+        
+
+        $userModel = new User;
+        $user = $userModel->find($id);
+        
+
+        // var_dump($userModel->rolbyid_rol($user['id_rol']));
+        $rol = $userModel->rolbyid_rol($user['id_rol']);
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+            $userPOST= $_POST;
+
+            var_dump($userPOST);
+
+            $userModel->update($id,[
+                'name' => $userPOST['name'],
+                'phone_number' => $userPOST['phone_number'],
+                'id_rol' => $userPOST['id_rol'],
+            ]);
+
+            return$this->view('dashboard');
+        }
+
+        
+        return $this->view('user_edit', [
+            'title' => 'Editar Usuario',
+             'user' => $user,
+                'rol' => $rol
+            
+
+        ]);
+    }
+
+    public function delete($id){
+        $userModel = new User;
+
+        $userModel->delete($id);
+
+        return $this->view('user_delete');
+        
     }
 }

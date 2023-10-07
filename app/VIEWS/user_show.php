@@ -32,8 +32,8 @@
 
                 <form class="mx-5 my-5">
 
-                  <label class="relative block p-3 border-2 border-black rounded" htmlFor="name">
-                    <span class="text-md font-semibold text-zinc-900" htmlFor="name">
+                  <label class="relative block p-3 border-2 border-black rounded">
+                    <span class="text-md font-semibold text-zinc-900" >
                       Nombre
                     </span>
                     <input class="w-full bg-transparent p-0 text-sm  text-gray-500 focus:outline-none" id="name" type="text" placeholder="<?= $user['name']; ?>" readonly />
@@ -42,21 +42,21 @@
 
 
 
-                  <label class="relative block p-3 border-2 mt-5 border-black rounded" htmlFor="name">
-                    <span class="text-md font-semibold text-zinc-900" htmlFor="name">
+                  <label class="relative block p-3 border-2 mt-5 border-black rounded" >
+                    <span class="text-md font-semibold text-zinc-900" >
                       Número de Teléfono
                     </span>
 
-                    <input class="w-full   p-0 text-sm border-none bg-transparent text-gray-500 focus:outline-none" id="name" type="text" placeholder="<?= $user['phone_number']; ?>" readonly />
+                    <input class="w-full   p-0 text-sm border-none bg-transparent text-gray-500 focus:outline-none" id="phone_number" type="text" placeholder="<?= $user['phone_number']; ?>" readonly />
                   </label>
 
 
-                  <label class="relative block p-3 border-2 mt-5 border-black rounded" htmlFor="name">
-                    <span class="text-md font-semibold text-zinc-900" htmlFor="name">
+                  <label class="relative block p-3 border-2 mt-5 border-black rounded" >
+                    <span class="text-md font-semibold text-zinc-900" >
                       Rol
                     </span>
 
-                    <input class="w-full   p-0 text-sm border-none bg-transparent text-gray-500 focus:outline-none" id="name" type="text" placeholder="<?= $rol ?>" readonly />
+                    <input class="w-full   p-0 text-sm border-none bg-transparent text-gray-500 focus:outline-none" id="id_rol" type="text" placeholder="<?= $rol ?>" readonly />
                   </label>
 
 
