@@ -14,58 +14,28 @@
   
   <!-- Main Content -->
   <div class="flex flex-grow">
-    <!-- Sidebar -->
+    <!-- Sidebar --> 
     <?php include '../app/Components/Sidebar.php'?>
     <!-- Content -->
     <div class="flex-grow p-4">
-             <!-- component -->
-             <div style="background-color : #f4f4f0" class=" sm:mx-32 lg:mx-32 xl:mx-72 ">
-          <div class="flex justify-between container mx-auto">
-            <div class="w-full">
-              <div class="mt-4 px-4">
-                <h1 class="text-3xl font-semibold py-7 px-5">Detalles de Usuario</h1>
+            <!-- Create User Form -->
+      <form class="mb-4" action="#" method="POST">
+        <label class="block mb-2" for="name">Nombre</label>
+        <input type="text" name="name" class="w-full border border-gray-400 p-2 mb-2" >
+        <label class="block mb-2" for="phone_number">Numero de teléfono</label>
+        <input type="numer" name="phone_number" class="w-full border border-gray-400 p-2 mb-2" >
+        <label class="block mb-2" for="password">Contraseña</label>
+        <input type="password" name="password" class="w-full border border-gray-400 p-2 mb-2" >
 
-                </h1>
+        <label class="block mb-2" for="role">Rol</label>
+        <select name="role" class="w-full border border-gray-400 p-2 mb-2">
+            <?php foreach ($roles as $role): ?>
+                <option value="<?= $role['id']; ?>"><?= $role['name']; ?></option>
+            <?php endforeach; ?>
+        </select>
 
-                <form class="mx-5 my-5">
-
-                  <label class="relative block p-3 border-2 border-black rounded" htmlFor="name">
-                    <span class="text-md font-semibold text-zinc-900" htmlFor="name">
-                      Nombre
-                    </span>
-                    <input class="w-full bg-transparent p-0 text-sm  text-gray-500 focus:outline-none" id="name" type="text" placeholder="Your name" />
-                  </label>
-
-
-
-
-                  <label class="relative block p-3 border-2 mt-5 border-black rounded" htmlFor="name">
-                    <span class="text-md font-semibold text-zinc-900" htmlFor="name">
-                      Número de Teléfono
-                    </span>
-
-                    <input class="w-full   p-0 text-sm border-none bg-transparent text-gray-500 focus:outline-none" id="name" type="text" placeholder="Write Your Bio" />
-                  </label>
-
-
-                  <label class="relative block p-3 border-2 mt-5 border-black rounded" htmlFor="name">
-                    <span class="text-md font-semibold text-zinc-900" htmlFor="name">
-                      Rol
-                    </span>
-
-                    <input class="w-full   p-0 text-sm border-none bg-transparent text-gray-500 focus:outline-none" id="name" type="text" placeholder="Write Your Bio" />
-                  </label>
-
-
-
-              </div>
-
-
-
-              </form>
-            </div>
-          </div>
-
+        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Crear Usuario</button>
+      </form>
 
         </div>
     </div>

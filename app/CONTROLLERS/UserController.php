@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Rol;
 use App\Models\User;
 
 class UserController extends Controller
@@ -24,7 +25,33 @@ class UserController extends Controller
     }
 
     public function create(){
-        return "Hola desde el create";
+
+        $rolesModel = new Rol;
+        $roles = $rolesModel->all();
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+            $userPOST= $_POST;
+
+            var_dump($userPOST);
+
+            $userModel = new User;
+            $userModel->create([
+                'name' => $userPOST['name'],
+                'phone_number' => $userPOST['phone_number'],
+                'password' =>  password_hash($userPOST['password'],PASSWORD_BCRYPT ) ,
+                'id_rol' => $userPOST['role'],
+            ]);
+
+            return $this->view('dashboard');
+        }
+        
+        return $this->view('user_create', [
+            'title' => 'Crear Usuario',
+            'roles' => $roles
+
+
+        ]);
     }
 
     public function show($id){
