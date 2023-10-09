@@ -7,7 +7,7 @@ namespace App\Models;
 class Chargue extends Model
 {
 
-    protected  $table = 'chargue';
+    protected  $table = 'chargues';
 
 }
 

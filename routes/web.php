@@ -5,6 +5,7 @@ use App\Controllers\LoginController;
 use App\Controllers\RegisterController;
 use App\Controllers\UserController;
 use App\Controllers\MinisteryController;
+use App\Controllers\ChargueController;
 use Lib\Route;
 
 
@@ -42,6 +43,21 @@ Route::get('/ministerys/:id/show', [MinisteryController::class, 'show']);
 Route::get('/ministerys/:id/edit', [MinisteryController::class, 'edit']);
 Route::post('/ministerys/:id/edit', [MinisteryController::class, 'edit']);
 Route::get('/ministerys/:id/delete', [MinisteryController::class, 'delete']);
+
+//Chargues
+Route::get('/chargues', [ChargueController::class, 'index']);
+Route::get('/chargues/create', [ChargueController::class, 'create']);
+Route::post('/chargues/create', [ChargueController::class, 'create']);
+Route::get('/chargues/:id/show', [ChargueController::class, 'show']);
+Route::get('/chargues/:id/edit', [ChargueController::class, 'edit']);
+Route::post('/chargues/:id/edit', [ChargueController::class, 'edit']);
+Route::get('/chargues/:id/delete', [ChargueController::class, 'delete']);
+
+//Vista Usuarios
+
+
+
+
 
 
 

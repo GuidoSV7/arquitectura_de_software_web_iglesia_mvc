@@ -20,11 +20,11 @@
     <div class="flex-grow p-4">
 
 
-        <div style="background-color : #f4f4f0" class=" sm:mx-16 lg:mx-16 xl:mx-72 ">
+    <div style="background-color : #f4f4f0" class=" sm:mx-16 lg:mx-16 xl:mx-72 ">
               <div class="flex justify-between container mx-auto">
                 <div class="w-full">
                   <div class="mt-4 px-4">
-                    <h1 class="text-3xl font-semibold py-7 px-5">Detalles del Ministerio</h1>
+                    <h1 class="text-3xl font-semibold py-7 px-5">Detalles del Cargo</h1>
 
                   
 
@@ -34,7 +34,7 @@
                         <span class="text-md font-semibold text-zinc-900" >
                           Nombre
                         </span>
-                        <input class="w-full bg-transparent p-0 text-sm  text-gray-500 focus:outline-none" name="name" type="text" placeholder="<?= $ministery['name']; ?>" value="<?= $ministery['name']; ?>" />
+                        <input class="w-full bg-transparent p-0 text-sm  text-gray-500 focus:outline-none" name="name" type="text" placeholder="<?= $chargue['name']; ?>" value="<?= $chargue['name']; ?>" />
                       </label>
 
 
@@ -59,6 +59,10 @@
           
         
         </div>
+      
+      
+     
+    </div>
   </div>
 </div>
 
