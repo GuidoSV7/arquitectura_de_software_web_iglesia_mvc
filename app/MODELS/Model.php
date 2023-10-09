@@ -126,4 +126,19 @@ class Model{
         $this->query($sql);
     }
 
+    public function update_relation($id, $column_name,$table_update){
+        $sql = "UPDATE {$table_update} SET {$column_name} = NULL WHERE {$column_name} = $id";
+
+        $this->query($sql);
+
+    }
+
+    public function delete_relation($id, $column_name,$table_delete){
+        $sql = "DELETE {$table_delete} WHERE {$column_name} = $id";
+
+        $this->query($sql);
+
+
+    }
+
 }

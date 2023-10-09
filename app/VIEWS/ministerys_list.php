@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title><?= $title ?></title>
+    <title>Document</title>
 </head>
 <body>
     
@@ -18,23 +18,22 @@
     <?php include '../app/Components/Sidebar.php'?>
     <!-- Content -->
     <div class="flex-grow p-4">
-      <h2 class="text-3xl">CRUD DE USERS</h2>
 
-      <div class="flex flex-col mt-4">
+        <h2 class="text-3xl">CRUD DE MINISTERYS</h2>
+        <div class="flex flex-col mt-4">
             <div class="flex flex-col">
                 <div class="flex flex-row">
                     <div class="flex flex-col">
-                        <a href="users/create" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        <a href="ministerys/create" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                             Crear
                         </a>
                     </div>
                 </div>
             </div>
-
-          <!-- User List -->
+                 <!-- ministery List -->
       <div class="bg-slate-300 overflow-hidden shadow-sm my-5">
-          <?php if (is_null($users)): ?>
-              <p class="p-4 text-center">No hay users con esos datos.</p>
+          <?php if (is_null($ministerys)): ?>
+              <p class="p-4 text-center">No hay ministerys con esos datos.</p>
           <?php else: ?>
               <table class="w-full border border-gray-400">
                   <thead>
@@ -45,14 +44,14 @@
                       </tr>
                   </thead>
                   <tbody>
-                      <?php foreach ($users as $user): ?>
+                      <?php foreach ($ministerys as $ministery): ?>
                           <tr>
-                              <td class="border border-gray-400 p-2"><?php echo $user['id']; ?></td>
-                              <td class="border border-gray-400 p-2"><?php echo $user['name']; ?></td>
+                              <td class="border border-gray-400 p-2"><?php echo $ministery['id']; ?></td>
+                              <td class="border border-gray-400 p-2"><?php echo $ministery['name']; ?></td>
                               <td class="border border-gray-400 p-2 text-center">
-                                  <a href="users/<?php echo $user['id']; ?>/show" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded mr-2">Show</a>
-                                  <a href="users/<?php echo $user['id']; ?>/edit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded mr-2">Edit</a>
-                                  <a href="users/<?php echo $user['id']; ?>/delete" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">Delete</a>
+                                  <a href="ministerys/<?php echo $ministery['id']; ?>/show" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded mr-2">Show</a>
+                                  <a href="ministerys/<?php echo $ministery['id']; ?>/edit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded mr-2">Edit</a>
+                                  <a href="ministerys/<?php echo $ministery['id']; ?>/delete" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">Delete</a>
                               </td>
                           </tr>
                       <?php endforeach; ?>
@@ -62,10 +61,6 @@
           <?php endif; ?>
       </div>
 
-</div>
-
-     
-    </div>
   </div>
 </div>
 
