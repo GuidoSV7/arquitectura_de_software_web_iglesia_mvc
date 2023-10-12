@@ -4,8 +4,11 @@ use App\Controllers\DashboardController;
 use App\Controllers\LoginController;
 use App\Controllers\RegisterController;
 use App\Controllers\UserController;
+use App\Controllers\AdminController;
 use App\Controllers\MinisteryController;
 use App\Controllers\ChargueController;
+use App\Controllers\EventController;
+
 use Lib\Route;
 
 
@@ -25,13 +28,13 @@ Route::get('/dashboard',[DashboardController::class, 'index'] );
 
 
 //Users
-Route::get('/users', [UserController::class, 'index']);
-Route::get('/users/create', [UserController::class, 'create']);
-Route::post('/users/create', [UserController::class, 'create']);
-Route::get('/users/:id/show', [UserController::class, 'show']);
-Route::get('/users/:id/edit', [UserController::class, 'edit']);
-Route::post('/users/:id/edit', [UserController::class, 'edit']);
-Route::get('/users/:id/delete', [UserController::class, 'delete']);
+Route::get('/users', [AdminController::class, 'index']);
+Route::get('/users/create', [AdminController::class, 'create']);
+Route::post('/users/create', [AdminController::class, 'create']);
+Route::get('/users/:id/show', [AdminController::class, 'show']);
+Route::get('/users/:id/edit', [AdminController::class, 'edit']);
+Route::post('/users/:id/edit', [AdminController::class, 'edit']);
+Route::get('/users/:id/delete', [AdminController::class, 'delete']);
 
 
 //Ministerys
@@ -53,8 +56,19 @@ Route::get('/chargues/:id/edit', [ChargueController::class, 'edit']);
 Route::post('/chargues/:id/edit', [ChargueController::class, 'edit']);
 Route::get('/chargues/:id/delete', [ChargueController::class, 'delete']);
 
-//Vista Usuarios
+//Events
+Route::get('/events', [EventController::class, 'index']);
+Route::get('/events/create', [EventController::class, 'create']);
+Route::post('/events/create', [EventController::class, 'create']);
+Route::get('/events/:id/show', [EventController::class, 'show']);
+Route::get('/events/:id/edit', [EventController::class, 'edit']);
+Route::post('/events/:id/edit', [EventController::class, 'edit']);
+Route::get('/events/:id/delete', [EventController::class, 'delete']);
 
+
+//Vista Usuarios
+Route::get('/home', [UserController::class, 'home']);
+Route::get('/about', [UserController::class, 'about']);
 
 
 
